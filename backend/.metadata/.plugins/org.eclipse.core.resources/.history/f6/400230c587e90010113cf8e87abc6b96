@@ -1,0 +1,13 @@
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+
+@GetMapping("/csv/{eventId}")
+public ResponseEntity<byte[]> downloadCsv(@PathVariable Long eventId) {
+    ByteArrayInputStream csvStream = registrationService.generateCsvForEvent(eventId);
+
+    return ResponseEntity.ok()
+            .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=registrations.csv")
+            .contentType(MediaType.parseMediaType("text/csv"))
+            .body(csvStream.readAllBytes());
+}

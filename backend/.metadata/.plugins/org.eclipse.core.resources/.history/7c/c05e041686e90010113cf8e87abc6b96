@@ -1,0 +1,52 @@
+package com.example.demo.controller;
+
+import com.example.demo.entity.Registration;
+import com.example.demo.entity.User;
+import com.example.demo.service.RegistrationService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/registrations")
+@CrossOrigin(origins = "http://localhost:3000")
+public class RegistrationController {
+
+    private final RegistrationService registrationService;
+
+    public RegistrationController(RegistrationService registrationService) {
+        this.registrationService = registrationService;
+    }
+
+    // ===============================
+    // STUDENT REGISTER FOR EVENT
+    // ===============================
+    @PostMapping("/{eventId}")
+    public Registration register(
+            @PathVariable Long eventId,
+            @RequestBody User user) {
+
+        return registrationService.saveRegistration(eventId, user);
+    }
+
+    // ===============================
+    // CHECK IF STUDENT REGISTERED
+    // ===============================
+    @GetMapping("/check")
+    public boolean checkRegistration(
+            @RequestParam String email,
+            @RequestParam Long eventId) {
+
+        return registrationService.isAlreadyRegistered(email, eventId);
+    }
+
+    // ===============================
+    // ADMIN: VIEW REGISTRATIONS BY EVENT
+    // ===============================
+    @GetMapping("/event/{eventId}")
+    public List<Registration> getRegistrationsForEvent(
+            @PathVariable Long eventId) {
+
+        return registrationService.getRegistrationsByEvent(eventId);
+    }
+}

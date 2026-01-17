@@ -1,0 +1,34 @@
+package com.example.demo.controller;
+
+import com.example.demo.entity.Registration;
+import com.example.demo.entity.User;
+import com.example.demo.service.RegistrationService;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/registrations")
+@CrossOrigin(origins = "http://localhost:3000")
+public class RegistrationController {
+
+    private final RegistrationService registrationService;
+
+    public RegistrationController(RegistrationService registrationService) {
+        this.registrationService = registrationService;
+    }
+
+    @PostMapping("/{eventId}")
+    public Registration register(
+            @PathVariable Long eventId,
+            @RequestBody User user) {
+
+        return registrationService.saveRegistration(eventId, user);
+    }
+
+    @GetMapping("/check")
+    public boolean checkRegistration(
+            @RequestParam String email,
+            @RequestParam Long eventId) {
+
+        return registrationService.isAlreadyRegistered(email, eventId);
+    }
+}

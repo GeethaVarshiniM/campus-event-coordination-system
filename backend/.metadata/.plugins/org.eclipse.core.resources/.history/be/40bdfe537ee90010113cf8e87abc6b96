@@ -1,0 +1,48 @@
+package com.example.demo.service;
+
+import com.example.demo.entity.Event;
+import com.example.demo.entity.Registration;
+import com.example.demo.entity.User;
+import com.example.demo.repository.EventRepository;
+import com.example.demo.repository.RegistrationRepository;
+import org.springframework.stereotype.Service;
+
+@Service
+public class RegistrationService {
+
+    private final RegistrationRepository registrationRepository;
+    private final EventRepository eventRepository;
+
+    public RegistrationService(RegistrationRepository registrationRepository,
+                               EventRepository eventRepository) {
+        this.registrationRepository = registrationRepository;
+        this.eventRepository = eventRepository;
+    }
+
+    public Registration saveRegistration(Long eventId, User user) {
+
+        boolean alreadyRegistered =
+                registrationRepository.existsByEmailAndEvent_Id(
+                        user.getEmail(), eventId);
+
+        if (alreadyRegistered) {
+            throw new RuntimeException("Already registered");
+        }
+
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new RuntimeException("Event not found"));
+
+        Registration registration = new Registration();
+        registration.setEmail(user.getEmail());
+        registration.setRegNumber(user.getRegNumber());
+        registration.setDepartment(user.getDepartment());
+        registration.setPhone(user.getPhone());
+        registration.setEvent(event);
+
+        return registrationRepository.save(registration);
+    }
+
+    public boolean isAlreadyRegistered(String email, Long eventId) {
+        return registrationRepository.existsByEmailAndEvent_Id(email, eventId);
+    }
+}

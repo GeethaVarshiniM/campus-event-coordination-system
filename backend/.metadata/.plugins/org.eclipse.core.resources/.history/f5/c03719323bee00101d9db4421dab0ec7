@@ -1,0 +1,78 @@
+package com.yourpackage.controller;
+
+import com.yourpackage.model.Event;
+import com.yourpackage.model.Registration;
+import com.yourpackage.model.User;
+import com.yourpackage.repository.EventRepository;
+import com.yourpackage.repository.RegistrationRepository;
+import com.yourpackage.repository.UserRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/registrations")
+@CrossOrigin(origins = "http://localhost:3000")
+public class RegistrationController {
+
+    @Autowired
+    private RegistrationRepository registrationRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private EventRepository eventRepository;
+
+    // ===============================
+    // REGISTER STUDENT FOR EVENT
+    // ===============================
+    @PostMapping("/{eventId}")
+    public ResponseEntity<?> registerForEvent(
+            @PathVariable Long eventId,
+            @RequestBody User user) {
+
+        // 1️⃣ Get event
+        Event event = eventRepository.findById(eventId).orElse(null);
+        if (event == null) {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .body("Event not found");
+        }
+
+        // 2️⃣ Get user by email
+        User existingUser =
+                userRepository.findByEmail(user.getEmail());
+
+        if (existingUser == null) {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .body("User not found");
+        }
+
+        // 3️⃣ Check if already registered
+        boolean alreadyRegistered =
+                registrationRepository
+                        .existsByUserAndEvent(existingUser, event);
+
+        if (alreadyRegistered) {
+            return ResponseEntity
+                    .status(HttpStatus.CONFLICT)
+                    .body("Already registered");
+        }
+
+        // 4️⃣ Save registration
+        Registration registration = new Registration();
+        registration.setUser(existingUser);
+        registration.setEvent(event);
+
+        registrationRepository.save(registration);
+
+        // 5️⃣ SUCCESS RESPONSE (IMPORTANT)
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body("Registered successfully");
+    }
+}
