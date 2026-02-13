@@ -97,4 +97,5 @@ B.Tech – Information Technology
 Prasad V Potluri Siddhartha Institute of Technology
 
 
+<img width="447" height="370" alt="Screenshot 2026-02-13 192450" src="https://github.com/user-attachments/assets/65305e96-2808-4d9d-af8f-83b3868475ec" />
 
