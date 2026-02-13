@@ -96,6 +96,41 @@ Geetha Varshini Moganti
 B.Tech – Information Technology
 Prasad V Potluri Siddhartha Institute of Technology
 
-
+𝐒𝐚𝐦𝐩𝐥𝐞 𝐈𝐦𝐚𝐠𝐞𝐬 𝐨𝐟 𝐖𝐞𝐛𝐬𝐢𝐭𝐞
+ 
 <img width="447" height="370" alt="Screenshot 2026-02-13 192450" src="https://github.com/user-attachments/assets/65305e96-2808-4d9d-af8f-83b3868475ec" />
+
+
+<img width="1272" height="904" alt="Screenshot 2026-02-13 193011" src="https://github.com/user-attachments/assets/94b83966-ff54-44a9-9b25-458a30043c2b" />
+
+
+<img width="425" height="438" alt="Screenshot 2026-02-13 193038" src="https://github.com/user-attachments/assets/38aa4263-21b3-4681-9e45-7224aae5c547" />
+
+
+<img width="1483" height="791" alt="Screenshot 2026-02-13 193223" src="https://github.com/user-attachments/assets/2c67f53b-0af9-4912-a983-c81158e6c390" />
+
+
+<img width="1452" height="905" alt="Screenshot 2026-02-13 193314" src="https://github.com/user-attachments/assets/401c82ef-1a42-415c-8bed-c7b5dad78566" />
+
+
+<img width="473" height="255" alt="Screenshot 2026-02-13 193343" src="https://github.com/user-attachments/assets/9ec60daa-bf79-459b-9cbb-eacde136e1e3" />
+
+
+<img width="657" height="153" alt="Screenshot 2026-02-13 193609" src="https://github.com/user-attachments/assets/e1320458-9dcd-4eaa-821e-49458fc63ea8" />
+
+
+<img width="543" height="186" alt="Screenshot 2026-02-13 193640" src="https://github.com/user-attachments/assets/447ebeee-459a-44e1-b971-fd1e8db6e37e" />
+
+
+<img width="517" height="540" alt="final" src="https://github.com/user-attachments/assets/a5894076-f442-4217-97de-a038a57fb36e" />
+
+
+
+
+
+
+
+
+
+
 
