@@ -1,4 +1,4 @@
-🎓 𝐂𝐨𝐥𝐥𝐞𝐠𝐞 𝐄𝐯𝐞𝐧𝐭 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭 𝐒𝐲𝐬𝐭𝐞𝐦
+                                       🎓 𝐂𝐨𝐥𝐥𝐞𝐠𝐞 𝐄𝐯𝐞𝐧𝐭 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭 𝐒𝐲𝐬𝐭𝐞𝐦
 
 A full-stack web application designed to manage college events efficiently, allowing students to register for events and administrators to manage events, view registrations, and export participant data.
 
