@@ -103,6 +103,8 @@ if (Test-Path -Path "$MAVEN_HOME" -PathType Container) {
   Write-Verbose "found existing MAVEN_HOME at $MAVEN_HOME"
   Write-Output "MVN_CMD=$MAVEN_HOME/bin/$MVN_CMD"
   exit $?
+
+
 }
 
 if (! $distributionUrlNameMain -or ($distributionUrlName -eq $distributionUrlNameMain)) {
